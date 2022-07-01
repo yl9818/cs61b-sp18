@@ -7,7 +7,7 @@ public class NBody {
         return radius;
     }
 
-    public static Planet[] readBodies(String file) {
+    public static Planet[] readPlanets(String file) {
         In in = new In(file);
         int numberOfPlanets = in.readInt();
         Planet[] result = new Planet[numberOfPlanets];
@@ -29,7 +29,7 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
         double radius = readRadius(filename);
-        Planet[] bodies = readBodies(filename);
+        Planet[] bodies = readPlanets(filename);
         StdDraw.clear(StdDraw.BLACK);
         StdDraw.setScale(-radius, radius);
         StdDraw.picture(0, 0, "images/starfield.jpg");
