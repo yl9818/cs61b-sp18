@@ -1,6 +1,6 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class IntListTest {
 
@@ -43,7 +43,8 @@ public class IntListTest {
     @Test
     public void testSquareListRecursive() {
         IntList L = IntList.of(1, 2, 3);
-        IntList res = IntList.squareListRecursive(L);
+//        IntList res = IntList.squareListRecursive(L);
+        IntList res = IntList.squareListIterative(L);
         assertEquals(IntList.of(1, 2, 3), L);
         assertEquals(IntList.of(1, 4, 9), res);
     }
