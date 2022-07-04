@@ -36,7 +36,7 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.IntListTest.testCatenate">
+  <component name="RunManager" selected="JUnit.IntListTest.testDcatenate">
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -110,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IntListTest.testCatenate" />
         <item itemvalue="JUnit.IntListTest.testDcatenate" />
+        <item itemvalue="JUnit.IntListTest.testCatenate" />
         <item itemvalue="JUnit.IntListTest.testSquareListRecursive" />
         <item itemvalue="JUnit.IntListTest" />
         <item itemvalue="JUnit.IntListTest.testList" />
@@ -126,15 +126,6 @@
           <url>file://$PROJECT_DIR$/DebugPractice/DebugExercise3.java</url>
           <line>13</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Intlist/IntList.java</url>
-          <line>99</line>
-          <properties class="IntList" method="catenate">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
