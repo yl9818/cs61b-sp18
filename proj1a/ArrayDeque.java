@@ -1,7 +1,4 @@
 public class ArrayDeque<T> {
-    public class Node{
-
-    }
     private int size;
     private int first;
     private int last;
@@ -11,7 +8,7 @@ public class ArrayDeque<T> {
     private static final int DEFAULT_CAPACITY = 8;
 
     private void updateUsage(){
-        usageRatio = (double) size/dequeLength;
+        usageRatio = (double) size / dequeLength;
     }
 
     public ArrayDeque(){
@@ -51,14 +48,14 @@ public class ArrayDeque<T> {
         return deque[index];
     }
 
-    public int minusone(int index){
+    private int minusone(int index){
         if (index == 0){
             return dequeLength - 1;
         }
         return index - 1;
     }
 
-    public int plusone(int index){
+    private int plusone(int index){
         index %= dequeLength;
         if (index == dequeLength - 1){
             return 0;
@@ -68,7 +65,7 @@ public class ArrayDeque<T> {
 
     public void addFirst(T item){
         if (usageRatio > 0.8){
-            resize(dequeLength*2);
+            resize(dequeLength * 2);
         }
         if (first == -1){
             first++;
@@ -83,7 +80,7 @@ public class ArrayDeque<T> {
 
     public void addLast(T item){
         if (usageRatio > 0.8){
-            resize(size*2);
+            resize(size * 2);
         }
         if (last == -1){
             first++;
@@ -98,9 +95,9 @@ public class ArrayDeque<T> {
 
     public T removeFirst(){
         if (size == 0) return null;
-        if (usageRatio < 0.25 &&
-                deque.length > DEFAULT_CAPACITY){
-            resize(size/2);
+        if (usageRatio < 0.25
+                && deque.length > DEFAULT_CAPACITY){
+            resize(size / 2);
         }
         T val = deque[first];
         first = plusone(first);
@@ -112,9 +109,9 @@ public class ArrayDeque<T> {
 
     public T removeLast(){
         if (size == 0) return null;
-        if (usageRatio < 0.25 &&
-                deque.length > DEFAULT_CAPACITY){
-            resize(size/2);
+        if (usageRatio < 0.25
+                && deque.length > DEFAULT_CAPACITY){
+            resize(size / 2);
         }
         T val = deque[last];
         last = minusone(last);
@@ -133,7 +130,7 @@ public class ArrayDeque<T> {
         System.out.println();
     }
 
-    public void resize(int capacity){
+    private void resize(int capacity){
         T[] a = (T[]) new Object[capacity];
         System.arraycopy(deque,0,a,0,size);
         deque = a;

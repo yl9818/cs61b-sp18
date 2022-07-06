@@ -1,5 +1,5 @@
 public class LinkedListDeque<T> {
-    public class Node{
+    public static class Node<T> {
         public T value;
         public Node prev;
         public Node next;
@@ -30,14 +30,14 @@ public class LinkedListDeque<T> {
     }
 
     // deep copy
-    public LinkedListDeque(LinkedListDeque<T> other){
+    public LinkedListDeque(LinkedListDeque other){
         sentinel = new Node();
         sentinel.prev = sentinel;
         sentinel.next = sentinel;
         size = 0;
-        for (int i=0;i<other.size();i+=1){
-//            addLast((T) other.get(i));// type-casting
-            addLast(other.get(i));
+        for (int i = 0;i<other.size();i += 1){
+            addLast((T) other.get(i));// type-casting
+//            addLast(other.get(i));
         }
     }
 
@@ -64,7 +64,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty(){
-        return (size==0);
+        return (size == 0);
     }
 
     public int size(){
@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
     public T removeFirst(){
         if (size == 0) return null;
         Node toBeRemoved = sentinel.next;
-        T res = toBeRemoved.value;
+        T res = (T) toBeRemoved.value;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
         toBeRemoved.prev = null;
@@ -95,7 +95,7 @@ public class LinkedListDeque<T> {
     public T removeLast(){
         if (size == 0) return null;
         Node toBeRemoved = sentinel.prev;
-        T res = toBeRemoved.value;
+        T res = (T) toBeRemoved.value;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
         toBeRemoved.prev = null;
@@ -106,14 +106,22 @@ public class LinkedListDeque<T> {
 
     public T get(int index){
         Node res = sentinel.next;
-        for (int i=0; i<index;i+=1){
+        for (int i = 0; i<index;i += 1){
             res = res.next;
         }
-        return res.value;
+        return (T) res.value;
     }
 
     public T getRecursive(int index){
-        return null;
+        if (size < index) return null;
+        return getRecursive(sentinel.next, index);
+    }
+
+    private T getRecursive(Node node, int i){
+        if (i == 0){
+            return (T) node.value;
+        }
+        return getRecursive(node.next, i - 1);
     }
 
 }
