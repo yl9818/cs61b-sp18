@@ -20,13 +20,13 @@ public class ArrayDeque<T> {
         updateUsage();
     }
 
-    public ArrayDeque(ArrayDeque<T> other) {
+    public ArrayDeque(ArrayDeque other) {
         deque = (T[]) new Object[other.dequeLength];
         size = other.size;
         first = -1;
         last = -1;
-        for (int i=0;i<size;i++) {
-            addLast(other.get(i));
+        for (int i = 0;i < size; i++) {
+            addLast((T) other.get(i));
         }
         if (size > 0) {
             first = 0;
@@ -50,7 +50,7 @@ public class ArrayDeque<T> {
     }
 
     private int minusone(int index) {
-        if (index == 0){
+        if (index == 0) {
             return dequeLength - 1;
         }
         return index - 1;
@@ -58,7 +58,7 @@ public class ArrayDeque<T> {
 
     private int plusone(int index) {
         index %= dequeLength;
-        if (index == dequeLength - 1){
+        if (index == dequeLength - 1) {
             return 0;
         }
         return index + 1;
@@ -71,7 +71,7 @@ public class ArrayDeque<T> {
         if (first == -1) {
             first++;
             last++;
-        }else{
+        } else {
             first = minusone(first);
         }
         deque[first] = item;
@@ -86,8 +86,7 @@ public class ArrayDeque<T> {
         if (last == -1) {
             first++;
             last++;
-        }
-        else {
+        } else {
             last = plusone(last);
         }
         deque[last] = item;
@@ -97,28 +96,28 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         if (size == 0) return null;
-        if (usageRatio < 0.25
-                && dequeLength > DEFAULT_CAPACITY) {
-            resize(dequeLength / 2);
-        }
         T val = deque[first];
         first = plusone(first);
         size--;
-        updateUsage();
+        if (usageRatio < 0.25 && dequeLength > DEFAULT_CAPACITY * 2) {
+            resize(dequeLength / 2);
+        } else{
+            updateUsage();
+        }
         return val;
 
     }
 
     public T removeLast() {
         if (size == 0) return null;
-        if (usageRatio < 0.25
-                && dequeLength > DEFAULT_CAPACITY){
-            resize(dequeLength / 2);
-        }
         T val = deque[last];
         last = minusone(last);
         size--;
-        updateUsage();
+        if (usageRatio < 0.25 && dequeLength > DEFAULT_CAPACITY * 2) {
+            resize(dequeLength / 2);
+        } else{
+            updateUsage();
+        }
         return val;
     }
 

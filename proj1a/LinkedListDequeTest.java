@@ -1,7 +1,5 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-
-	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
 			System.out.println("isEmpty() returned " + actual + ", but expected: " + expected);
@@ -44,7 +42,6 @@ public class LinkedListDequeTest {
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
@@ -75,8 +72,6 @@ public class LinkedListDequeTest {
 	public static void addRemoveTest() {
 
 		System.out.println("Running add/remove/get test.");
-
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty
@@ -124,8 +119,8 @@ public class LinkedListDequeTest {
 
 		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
 		boolean passed = checkEqual(true, lld1.size() == lld2.size());
-		if (passed){
-			for (int i=0;i<lld1.size();i++) {
+		if (passed) {
+			for (int i = 0; i < lld1.size(); i++) {
 				passed = checkEqual(true, lld1.get(i) == lld2.get(i)) && passed;
 			}
 		}

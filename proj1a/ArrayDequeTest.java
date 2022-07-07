@@ -19,7 +19,7 @@ public class ArrayDequeTest {
 
     public static boolean checkEqual(boolean expected, boolean actual) {
         if (expected != actual) {
-            System.out.println("Copy constructor returned " + actual + ", but expected: " + expected);
+            System.out.println("Constructor returned " + actual + ", but expected: " + expected);
             return false;
         }
         return true;
@@ -57,7 +57,6 @@ public class ArrayDequeTest {
      * && is the "and" operation. */
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
         ArrayDeque<String> lld1 = new ArrayDeque<>();
 
@@ -137,7 +136,7 @@ public class ArrayDequeTest {
         LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
         boolean passed = checkEqual(true, lld1.size() == lld2.size());
         if (passed){
-            for (int i=0;i<lld1.size();i++) {
+            for (int i = 0; i < lld1.size(); i++) {
                 passed = checkEqual(true, lld1.get(i) == lld2.get(i)) && passed;
             }
         }
@@ -146,7 +145,9 @@ public class ArrayDequeTest {
         printTestStatus(passed);
     }
 
-    public static void addRemoveTest2(){
+    public static void addRemoveTest2() {
+        System.out.println("Running add/remove/get test.");
+
         ArrayDeque<Integer> ad1 = new ArrayDeque<>();
         ad1.addFirst(0);
         boolean passed = checkRemove(0, ad1.removeFirst());
@@ -184,11 +185,50 @@ public class ArrayDequeTest {
         printTestStatus(passed);
     }
 
+    public static void addRemoveTest3() {
+        System.out.println("Running add/remove/size test.");
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.addFirst(10);
+        ad1.addFirst(9);
+        ad1.addFirst(8);
+        ad1.addFirst(7);
+        ad1.addFirst(6);
+        ad1.addFirst(5);
+        ad1.addFirst(4);
+        ad1.addFirst(3);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        ad1.removeFirst();
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+
+        ad1.addFirst(10);
+        ad1.addFirst(9);
+        ad1.addFirst(8);
+        ad1.addFirst(7);
+        ad1.addFirst(6);
+        ad1.addFirst(5);
+        ad1.addFirst(4);
+        ad1.addFirst(3);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+    }
+
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
         addIsEmptySizeTest();
         addRemoveTest();
         copyConstructorTest();
         addRemoveTest2();
+        addRemoveTest3();
     }
 }
