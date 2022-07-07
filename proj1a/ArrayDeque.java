@@ -20,24 +20,28 @@ public class ArrayDeque<T> {
         updateUsage();
     }
 
-    public ArrayDeque(ArrayDeque other) {
-        deque = (T[]) new Object[other.dequeLength];
-        size = other.size;
-        first = -1;
-        last = -1;
-        for (int i = 0;i < size; i++) {
-            addLast((T) other.get(i));
-        }
-        if (size > 0) {
-            first = 0;
-            last = size - 1;
-        }
-        updateUsage();
-    }
+//    public ArrayDeque(ArrayDeque other) {
+//        deque = (T[]) new Object[other.dequeLength];
+//        size = other.size;
+//        first = -1;
+//        last = -1;
+//        for (int i = 0; i < size; i++) {
+//            addLast((T) other.get(i));
+//        }
+//        if (size > 0) {
+//            first = 0;
+//            last = size - 1;
+//        }
+//        updateUsage();
+//    }
 
     public int size() {
         return size;
     }
+
+//    public int capacity(){
+//        return dequeLength;
+//    }
 
     public boolean isEmpty() {
         return (size == 0);
@@ -95,28 +99,30 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-        if (size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         T val = deque[first];
         first = plusone(first);
         size--;
-        if (usageRatio < 0.25 && dequeLength > DEFAULT_CAPACITY * 2) {
+        updateUsage();
+        if (usageRatio < 0.5 && dequeLength >= DEFAULT_CAPACITY * 2) {
             resize(dequeLength / 2);
-        } else{
-            updateUsage();
         }
         return val;
 
     }
 
     public T removeLast() {
-        if (size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         T val = deque[last];
         last = minusone(last);
         size--;
-        if (usageRatio < 0.25 && dequeLength > DEFAULT_CAPACITY * 2) {
+        updateUsage();
+        if (usageRatio < 0.5 && dequeLength >= DEFAULT_CAPACITY * 2) {
             resize(dequeLength / 2);
-        } else{
-            updateUsage();
         }
         return val;
     }
@@ -133,14 +139,14 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
-        int index = first;
-        for (int i = first; i < first + size; i++){
-            a[i] = deque[index];
-            index = plusone(index);
+        for (int i = 0; i < size; i++) {
+            a[i] = deque[first];
+            first = plusone(first);
         }
         dequeLength = capacity;
         deque = a;
-        last = first + size - 1;
+        first = 0;
+        last = size - 1;
         updateUsage();
     }
 }

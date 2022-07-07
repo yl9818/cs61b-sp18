@@ -30,16 +30,16 @@ public class LinkedListDeque<T> {
     }
 
     // deep copy
-    public LinkedListDeque(LinkedListDeque other) {
-        sentinel = new Node();
-        sentinel.prev = sentinel;
-        sentinel.next = sentinel;
-        size = 0;
-        for (int i = 0; i < other.size(); i += 1) {
-            addLast((T) other.get(i));// type-casting
-//            addLast(other.get(i)); // if LinkedListDeque<T> other is used in argument
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque other) {
+//        sentinel = new Node();
+//        sentinel.prev = sentinel;
+//        sentinel.next = sentinel;
+//        size = 0;
+//        for (int i = 0; i < other.size(); i += 1) {
+//            addLast((T) other.get(i)); // type-casting
+////            addLast(other.get(i)); // if LinkedListDeque<T> other is used in argument
+//        }
+//    }
 
     public void addFirst(T item) {
         size++;
@@ -116,7 +116,7 @@ public class LinkedListDeque<T> {
         return res.value;
     }
 
-    public T getRecursive(int index){
+    public T getRecursive(int index) {
         if (size < index) {
             return null;
         }

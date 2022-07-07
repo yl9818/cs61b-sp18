@@ -110,29 +110,29 @@ public class LinkedListDequeTest {
 
 	}
 
-	public static void copyConstructorTest() {
-		System.out.println("Running copy constructor test.");
-		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-		lld1.addFirst(10);
-		lld1.addFirst(5);
-		lld1.addLast(15);
-
-		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
-		boolean passed = checkEqual(true, lld1.size() == lld2.size());
-		if (passed) {
-			for (int i = 0; i < lld1.size(); i++) {
-				passed = checkEqual(true, lld1.get(i) == lld2.get(i)) && passed;
-			}
-		}
-		System.out.print("Printing out deque: ");
-		lld2.printDeque();
-		printTestStatus(passed);
-	}
+//	public static void copyConstructorTest() {
+//		System.out.println("Running copy constructor test.");
+//		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+//		lld1.addFirst(10);
+//		lld1.addFirst(5);
+//		lld1.addLast(15);
+//
+//		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
+//		boolean passed = checkEqual(true, lld1.size() == lld2.size());
+//		if (passed) {
+//			for (int i = 0; i < lld1.size(); i++) {
+//				passed = checkEqual(true, lld1.get(i) == lld2.get(i)) && passed;
+//			}
+//		}
+//		System.out.print("Printing out deque: ");
+//		lld2.printDeque();
+//		printTestStatus(passed);
+//	}
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
-		copyConstructorTest();
+//		copyConstructorTest();
 	}
 }
