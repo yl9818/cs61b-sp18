@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 public class TestPalindrome {
     static Palindrome palindrome = new Palindrome();
-    static OffByOne offbyone = new OffByOne();
+    static OffByOne offByOne = new OffByOne();
 
     @Test
     public void testWordToDeque() {
@@ -25,8 +25,8 @@ public class TestPalindrome {
 
     @Test
     public void testIsPalindromeOffByOne() {
-        assertTrue(palindrome.isPalindrome("d", offbyone));
-        assertFalse(palindrome.isPalindrome("noon", offbyone));
-        assertTrue(palindrome.isPalindrome("flake", offbyone));
+        assertTrue(palindrome.isPalindrome("d", offByOne));
+        assertFalse(palindrome.isPalindrome("noon", offByOne));
+        assertTrue(palindrome.isPalindrome("flake", offByOne));
     }
 }

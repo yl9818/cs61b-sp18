@@ -3,13 +3,13 @@ import static org.junit.Assert.*;
 
 public class TestOffByN {
 
-    public OffByN offbyn = new OffByN(5);
+    private OffByN offByN = new OffByN(5);
 
     @Test
     public void testOffByN() {
-        assertTrue(offbyn.equalChars('a', 'f'));
-        assertTrue(offbyn.equalChars('f', 'a'));
-        assertFalse(offbyn.equalChars('f', 'h'));
+        assertTrue(offByN.equalChars('a', 'f'));
+        assertTrue(offByN.equalChars('f', 'a'));
+        assertFalse(offByN.equalChars('f', 'h'));
 
     }
 }

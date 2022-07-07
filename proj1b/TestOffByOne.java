@@ -2,13 +2,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestOffByOne {
-    public OffByOne obo = new OffByOne();
+    private OffByOne offByOne = new OffByOne();
 
     @Test
     public void testEqualChars() {
-        assertFalse(obo.equalChars('a', 'a'));
-        assertTrue(obo.equalChars('a', 'b'));
-        assertTrue(obo.equalChars('r', 'q'));
-        assertFalse(obo.equalChars('a', 'e'));
+        assertFalse(offByOne.equalChars('a', 'a'));
+        assertTrue(offByOne.equalChars('a', 'b'));
+        assertTrue(offByOne.equalChars('r', 'q'));
+        assertFalse(offByOne.equalChars('a', 'e'));
     }
 }
