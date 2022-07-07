@@ -17,9 +17,25 @@ public class ArrayDequeTest {
         return true;
     }
 
-    public static boolean checkEqual(boolean expected, boolean actual){
+    public static boolean checkEqual(boolean expected, boolean actual) {
         if (expected != actual) {
             System.out.println("Copy constructor returned " + actual + ", but expected: " + expected);
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean checkGet(int expected, int actual) {
+        if (expected != actual) {
+            System.out.println("get() returned " + actual + ", but expected: " + expected);
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean checkRemove(int expected, int actual) {
+        if (expected != actual) {
+            System.out.println("remove() returned " + actual + ", but expected: " + expected);
             return false;
         }
         return true;
@@ -111,7 +127,7 @@ public class ArrayDequeTest {
 
     }
 
-    public static void copyConstructorTest(){
+    public static void copyConstructorTest() {
         System.out.println("Running copy constructor test.");
         LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
         lld1.addFirst(10);
@@ -130,10 +146,49 @@ public class ArrayDequeTest {
         printTestStatus(passed);
     }
 
+    public static void addRemoveTest2(){
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.addFirst(0);
+        boolean passed = checkRemove(0, ad1.removeFirst());
+        ad1.addFirst(2);
+        ad1.addLast(3);
+        ad1.addLast(4);
+        ad1.addLast(5);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+
+        passed = checkRemove(5, ad1.removeLast()) && passed;
+        passed = checkGet(2, ad1.get(0)) && passed;
+        passed = checkGet(4, ad1.get(2)) && passed;
+        ad1.addFirst(9);
+        ad1.addLast(10);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+        passed = checkGet(3, ad1.get(2)) && passed;
+        ad1.addLast(12);
+        passed = checkRemove(12, ad1.removeLast()) && passed;
+        ad1.addFirst(14);
+        passed = checkGet(3, ad1.get(3)) && passed;
+        ad1.addFirst(16);
+        ad1.addFirst(17);
+        ad1.addLast(18);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+        passed  = checkGet(2, ad1.get(4)) && passed;
+        passed = checkGet(14, ad1.get(2)) && passed;
+        ad1.addLast(21);
+        System.out.print("Printing out deque: ");
+        ad1.printDeque();
+        passed = checkRemove(17, ad1.removeFirst()) && passed;
+
+        printTestStatus(passed);
+    }
+
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
         addIsEmptySizeTest();
         addRemoveTest();
         copyConstructorTest();
+        addRemoveTest2();
     }
 }

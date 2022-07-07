@@ -10,9 +10,10 @@ public class LinkedListDequeTest {
 		return true;
 	}
 
-	public static boolean checkEqual(boolean expected, boolean actual){
+	public static boolean checkEqual(boolean expected, boolean actual) {
 		if (expected != actual) {
-			System.out.println("Copy constructor returned " + actual + ", but expected: " + expected);
+			System.out.println("Copy constructor returned "
+					+ actual + ", but expected: " + expected);
 			return false;
 		}
 		return true;
@@ -114,7 +115,7 @@ public class LinkedListDequeTest {
 
 	}
 
-	public static void copyConstructorTest(){
+	public static void copyConstructorTest() {
 		System.out.println("Running copy constructor test.");
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		lld1.addFirst(10);
