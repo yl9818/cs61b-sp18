@@ -15,7 +15,7 @@ public class Palindrome {
         return isPalindrome(deque);
     }
 
-    public boolean isPalindrome(Deque<Character> deque) {
+    private boolean isPalindrome(Deque<Character> deque) {
         if (deque.size() < 2) {
             return true;
         }

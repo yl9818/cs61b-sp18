@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 public class TestOffByN {
 
-    OffByN offbyn = new OffByN(5);
+    public OffByN offbyn = new OffByN(5);
 
     @Test
     public void testOffByN() {
