@@ -6,9 +6,10 @@ public class ArrayDeque<T> implements Deque<T> {
     private T[] deque;
     private double usageRatio;
     private static final int DEFAULT_CAPACITY = 8;
+    private double EPSILON = 1e-8;
 
     private void updateUsage() {
-        usageRatio = (double) size / dequeLength;
+        usageRatio = (double) size / (double) dequeLength;
     }
 
     public ArrayDeque() {
@@ -63,7 +64,7 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public void addFirst(T item) {
-        if (usageRatio == 1) {
+        if (usageRatio > 0.85) {
             resize(dequeLength * 2);
         }
         if (first == -1) {
@@ -79,7 +80,7 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public void addLast(T item) {
-        if (usageRatio == 1) {
+        if (usageRatio > 0.85) {
             resize(dequeLength * 2);
         }
         if (last == -1) {

@@ -2,8 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestOffByN {
-
-    private OffByN offByN = new OffByN(5);
+    static CharacterComparator offByN = new OffByN(5);
 
     @Test
     public void testOffByN() {

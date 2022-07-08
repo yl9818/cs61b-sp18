@@ -40,7 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.PalindromeFinder">
+  <component name="RunManager" selected="JUnit.TestPalindrome.testWordToDeque">
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -81,21 +81,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestPalindrome" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="proj1b" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestPalindrome" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestPalindrome.testIsPalindromeOffByOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="proj1b" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestPalindrome" />
       <option name="METHOD_NAME" value="testIsPalindromeOffByOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPalindrome.testWordToDeque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proj1b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestPalindrome" />
+      <option name="METHOD_NAME" value="testWordToDeque" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -111,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestPalindrome.testWordToDeque" />
         <item itemvalue="Application.PalindromeFinder" />
         <item itemvalue="JUnit.TestOffByN.testOffByN" />
         <item itemvalue="JUnit.TestPalindrome.testIsPalindromeOffByOne" />
         <item itemvalue="JUnit.TestOffByOne.testEqualChars" />
-        <item itemvalue="JUnit.TestPalindrome" />
       </list>
     </recent_temporary>
   </component>

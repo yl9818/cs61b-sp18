@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 public class TestPalindrome {
     static Palindrome palindrome = new Palindrome();
-    static OffByOne offByOne = new OffByOne();
+    static CharacterComparator offByOne = new OffByOne();
 
     @Test
     public void testWordToDeque() {

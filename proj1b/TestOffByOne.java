@@ -2,7 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestOffByOne {
-    private OffByOne offByOne = new OffByOne();
+    static CharacterComparator offByOne = new OffByOne();
 
     @Test
     public void testEqualChars() {
