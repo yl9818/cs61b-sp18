@@ -1,11 +1,12 @@
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class ArithmeticTest {
 
     /** Performs a few arbitrary tests to see if the product method is correct */
-
-    @Test 
+    // all tests must be non-static
+    @Test
     public void testProduct() {
         /* assertEquals for comparison of ints takes two arguments:
         assertEquals(expected, actual).
@@ -19,7 +20,7 @@ public class ArithmeticTest {
 
     /** Performs a few arbitrary tests to see if the sum method is correct */
 
-    @Test 
+    @Test
     public void testSum() {
 
         assertEquals(11, Arithmetic.sum(5, 6));
@@ -29,7 +30,7 @@ public class ArithmeticTest {
     }
 
     /* Run the unit tests in this file. */
-    public static void main(String... args) {        
-        jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
+    public static void main(String... args) {
+        jh61b.junit.TestRunner.runTests("failed", ArithmeticTest.class);
     }
 }
